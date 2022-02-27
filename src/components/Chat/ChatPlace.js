@@ -4,7 +4,7 @@ import Status from './Status';
 
 const ChatPlace = () => {
   return (
-    <div className="chat-place flex flex-col items-center">
+    <div className="chat-place">
       <Status />
       <ChatList />
       <InputBox />

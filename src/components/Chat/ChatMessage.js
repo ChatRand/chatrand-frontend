@@ -1,6 +1,6 @@
 const ChatMessage = () => {
   return (
-    <div className="bg-messagecolor1 max-w-[50%] self-end p-2 rounded-md mb-3 mt-3">
+    <div className="mt-2 mb-2 bg-messagecolor1 max-w-[50%] rounded-lg p-1 chat-message">
       <div>
         Hello there. a demo text content
       </div>
