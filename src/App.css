@@ -24,10 +24,10 @@
 }
 
 .app {
-  min-height: 100vh;
+  min-height: 100%;
   width: 100vw;
 
-  /* min-height: -webkit-fill-available; */
+  min-height: -webkit-fill-available;
   position: relative;
 
   display: flex;
@@ -55,3 +55,4 @@
   /* align-self: flex-end; */
   justify-self: flex-end;
 }
+
