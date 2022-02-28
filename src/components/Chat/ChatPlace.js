@@ -4,7 +4,7 @@ import Status from './Status';
 
 const ChatPlace = ({messages, onSendMessage}) => {
   return (
-    <div className="chat-place h-[92vh] flex flex-col content-between">
+    <div className="chat-place h-[84.5vh] flex flex-col content-between">
       <Status />
       <MessagesList messages={messages}/>
       <InputBox onSendMessage={onSendMessage}/>
