@@ -23,28 +23,27 @@
   box-sizing: border-box;
 }
 
-.app {
+/* .app {
   min-height: 100%;
   width: 100vw;
 
-  min-height: -webkit-fill-available;
   position: relative;
 
   display: flex;
   flex-direction: column;
-}
+} */
 
-.navbar {
+/* .navbar {
   height: 5em;
   width: 100%;
-}
+} */
 
-.chat-place {
+/* .chat-place {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 5em);
   position: relative;
-}
+} */
 
 .messages-list {
   overflow-y: scroll;
@@ -54,6 +53,10 @@
 .chat-message {
   /* align-self: flex-end; */
   justify-self: flex-end;
+}
+
+.chat-message p{
+  white-space: pre-wrap;
 }
 /* 
 .form {
@@ -72,3 +75,6 @@
   height: 100%;
 } */
 
+textarea {
+  white-space: pre-wrap;
+}

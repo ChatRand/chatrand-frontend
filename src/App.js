@@ -8,7 +8,7 @@ import {useState} from 'react';
 
 function App() {
   const [messages, setMessages] = useState([]);
-
+  
   const sendMessage = (message) => {
     // messages.map((me)
 
@@ -22,6 +22,10 @@ function App() {
   }
 
   useEffect(() => {
+    socketOperation();
+  });
+
+  const socketOperation = () => {
     const socket = io('http://127.0.0.1:5555');
 
     socket.on('connect', () => {
@@ -29,10 +33,10 @@ function App() {
         console.log(data);
       })
     })
-  });
+  }
   
   return (
-    <div className="app font-wholefont bg-secondary text-textcolor"> 
+    <div className="app font-wholefont bg-secondary text-textcolor h-full w-full"> 
       <NavBar />
       <ChatPlace messages={messages} onSendMessage={sendMessage}/>
     </div>

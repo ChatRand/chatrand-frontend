@@ -16,7 +16,7 @@ const MessagesList = ({messages}) => {
 
 
   return (
-    <div className="messages-list pl-3 pr-3 lg:pl-40 lg:pr-40 flex flex-col">
+    <div className="messages-list pl-3 pr-3 lg:pl-40 lg:pr-40 flex flex-col h-[75vh]">
 
       {
         messages.length > 0 ? messages.map((message) => (
