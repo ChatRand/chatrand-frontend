@@ -1,16 +1,13 @@
-const ChatMessage = () => {
+const ChatMessage = ({message}) => {
   return (
-    <div className="mt-2 mb-2 bg-messagecolor1 max-w-[50%] rounded-lg p-1 chat-message">
-      <div>
-        Hello there. a demo text content
-      </div>
-      <div>
-        <div>
-          10:03 Pm
-        </div>
-        <div>
-          seen
-        </div>
+    <div className={'mt-2 mb-2 bg-messagecolor1 max-w-[75%] break-words rounded-lg p-2 chat-message' + (message.owner === 'me'? ' self-end': ' self-start')}>
+      <p className="text-sm">
+        {message.message}
+      </p>
+      <div className="flex text-footersize text-footertextcolor items-end justify-end">
+        <span className="pr-1">
+          {message.time}
+        </span>
       </div>
     </div>
   )
