@@ -12,7 +12,9 @@ const InputBox = ({onSendMessage}) => {
       return;
     }
 
-    onSendMessage({message});
+    const owner = 'me';
+
+    onSendMessage({message, owner});
 
     setMessage('');
   }

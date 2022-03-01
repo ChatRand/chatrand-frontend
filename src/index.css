@@ -9,4 +9,16 @@
   .navbar {
     @apply relative flex items-center justify-between;
   }
+
+  .matched {
+    @apply bg-green-700;
+  }
+
+  .none {
+    @apply bg-messagecolor1;
+  }
+
+  .searching {
+    @apply bg-cyan-200 text-black; 
+  }
 }
