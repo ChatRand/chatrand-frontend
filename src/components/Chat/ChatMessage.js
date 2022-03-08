@@ -1,6 +1,6 @@
 const ChatMessage = ({message}) => {
   return (
-    <div className={'mt-2 mb-2 bg-messagecolor1 max-w-[75%] break-words rounded-lg p-2 chat-message' + (message.owner === 'me'? ' self-end': ' self-start')}>
+    <div className={'mt-2 mb-2 bg-messagecolor1 max-w-[75%] break-words p-2 chat-message' + (message.owner === 'me'? ' self-end me': ' self-start partner')}>
       <p className="text-sm one">
         {message.message}
       </p>

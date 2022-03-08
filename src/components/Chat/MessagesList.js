@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 import ChatMessage from "./ChatMessage";
+import { useSelector } from "react-redux";
 
-const MessagesList = ({messages}) => {
+const MessagesList = () => {
   const bottom = useRef(null);
+  const messages = useSelector((state) => state.messages);
 
   const scrollToBottom = () => {
     bottom.current?.scrollIntoView({
@@ -20,7 +22,9 @@ const MessagesList = ({messages}) => {
       {
         messages.length > 0 ? messages.map((message) => (
           <ChatMessage key={message.id} message={message} />
-        )) : 'No Messages Yet'
+        )) : <div className="w-full h-full flex justify-center items-center text-footertextcolor">
+          <span>No Messages Yet...</span>
+        </div>
       }
       <div ref={bottom}></div>
     </div>

@@ -1,8 +1,11 @@
 import { useState } from 'react'
+// import { useDispatch } from 'react-redux';
+// import { addMessage } from '../../store/messageSlice';
 
 const InputBox = ({onSendMessage}) => {
 
   const [ message, setMessage ] = useState();
+  // const dispatch = useDispatch();
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -13,8 +16,8 @@ const InputBox = ({onSendMessage}) => {
     }
 
     const owner = 'me';
-
     onSendMessage({message, owner});
+
 
     setMessage('');
   }
@@ -28,13 +31,13 @@ const InputBox = ({onSendMessage}) => {
         value={message}
         name="chat" 
         placeholder="Message..." 
-        className="resize-none border-none bg-messagecolor1 form-textarea h-full w-full">
+        className="resize-none border-none bg-messagecolor1 form-textarea h-full w-full rounded-tl-lg rounded-bl-lg">
         
         </textarea>
       </div>
 
       <div className="w-[13%] h-full">
-        <button onClick={sendMessage} className="bg-primary h-full w-full">
+        <button onClick={sendMessage} className="bg-primary h-full w-full rounded-tr-lg rounded-br-lg">
           Send
         </button>
       </div>

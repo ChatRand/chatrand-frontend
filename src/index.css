@@ -21,4 +21,16 @@
   .searching {
     @apply bg-cyan-200 text-black; 
   }
+
+  .me {
+    @apply rounded-tr-lg rounded-tl-lg rounded-bl-lg;
+  }
+
+  .partner {
+    @apply rounded-tr-lg rounded-tl-lg rounded-br-lg;
+  }
+
+  .option {
+    @apply p-3 cursor-pointer hover:text-white hover:bg-messagecolor1 shadow-xl;
+  }
 }

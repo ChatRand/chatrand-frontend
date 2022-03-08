@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#25273C',
-        secondary: '#2C2C37',
+        primary: '#0E0824',
+        secondary: '#1A152F',
         textcolor: '#ddd4d4',
         textinputcolor: '#393b47',
         messagecolor1: '#46464ba4',
@@ -19,7 +19,7 @@ module.exports = {
       },
       fontSize: {
         footersize: '.85rem'
-      }
+      },
     },
   },
   variants: {
