@@ -10,7 +10,7 @@ export const statusSlice = createSlice({
       const status = action.payload.status;
 
       state[0] = status;
-    }
+    },
   }
 });
 
