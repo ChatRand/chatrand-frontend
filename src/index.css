@@ -31,6 +31,6 @@
   }
 
   .option {
-    @apply p-3 cursor-pointer hover:text-white hover:bg-messagecolor1 shadow-xl;
+    @apply p-3 cursor-pointer hover:text-white hover:bg-messagecolor1;
   }
 }

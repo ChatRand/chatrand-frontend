@@ -17,17 +17,19 @@ const Status = ({ onLeaveChat, onLookForMatch}) => {
         </h3> } <p className="ml-3">{ status === 'none' ? 'Not Matched' : status }</p>
       </div>
 
-      <select name="Prefered Gender" className="p-2 rounded-md cursor-pointer bg-messagecolor1">
-        <option value="male" className="option">
-          Male
-        </option>
-        <option value="female" className="option">
-          Female
-        </option>
-        <option value="none">
-          Doesn't matter
-        </option>
-      </select>
+      <div className="flex items-center">
+        <select name="Prefered Gender" className="p-2 rounded-md cursor-pointer bg-messagecolor1 shadow-xl">
+          <option value="male" className="option h-full">
+            Male
+          </option>
+          <option value="female" className="option h-full">
+            Female
+          </option>
+          <option value="none">
+            Doesn't matter
+          </option>
+        </select>
+      </div>
    </div> 
   )
 }

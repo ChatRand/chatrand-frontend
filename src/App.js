@@ -29,9 +29,6 @@ const ESCAPE_KEYS = ["27", "Escape"];
   };
 
 function App() {
-  // const [messages, setMessages] = useState([]);
-  // const [status, setStatus] = useState('none');
-
   const handler = ({key}) => {
     if(ESCAPE_KEYS.includes(String(key))) {
       console.log('Esc pressed');
@@ -69,9 +66,6 @@ function App() {
       });
   
       socket.on('matched', (data) => {
-        console.log(data.message);
-  
-        // setStatus('matched');
         dispatch(changeStatus({
           status: 'matched',
         }))
@@ -90,27 +84,15 @@ function App() {
           owner: 'partner',
           time: '09:30AM'
         });
-        // sendMessage(receivedMessage);
       });
   
       socket.on('left', (data) => {
-        // setStatus('none');
         dispatch(changeStatus({
           status: 'none',
         }))
       });
     })
   })
-
-  // useEffect(() => {
-    
-  // });
-
-  // NOTE: The types of state user get into when interacting with the matching functionality
-
-  // 1. 'searching' looking for match 
-  // 2. 'matched' chatting with a person
-  // 3. 'none' doing nothing on the platform
 
   const lookForMatch = () => {
     dispatch(changeStatus({
@@ -120,10 +102,10 @@ function App() {
   }
 
   const leaveChat = () => {
-    // setStatus('none');
-    dispatch({
+    socket.emit('leaveChat');
+    dispatch(changeStatus({
       status: 'none',
-    })
+    }))
   }
   
   return (
