@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SocketContext } from '../../Context/socket';
 import { addMessage } from '../../store/messageSlice';
 
+// let lastType = null;
 const InputBox = () => {
   const socket = useContext(SocketContext);
 
   const [ message, setMessage ] = useState("");
   const dispatch = useDispatch();
   const statusData = useSelector(status => status.status);
+  const typingStatus = useSelector(typing => typing.typing)[0];
+  console.log(typingStatus);
   const status = statusData[0];
   const ESCAPE_KEYS = ["27", "Escape"];
 
@@ -69,11 +72,31 @@ const InputBox = () => {
     setMessage('');
   }
 
+  const handleInputChange = (e) => {
+    setMessage(e.target.value);
+
+    // if(lastType == null) {
+    //   lastType = new Date();
+    //   socket.emit('typing');
+    // } else {
+    //   let now = new Date();
+
+    //   if((now - lastType) > 10000) {
+    //     console.log('yes');
+    //     socket.emit('typing');
+    //     lastType = now;
+    //   }
+      
+    // }
+
+    socket.emit('typing');
+  }
+
   return (
     <div className="input-box pl-3 pr-3 lg:pl-40 lg:pr-40 flex items-center mb-5 h-[10vh]">
       <div className="w-[87%] h-full">
         <textarea 
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={handleInputChange}
         value={message}
         name="chat" 
         placeholder="Message..." 

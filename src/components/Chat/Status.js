@@ -42,14 +42,14 @@ const Status = () => {
 
       <div className="flex items-center">
         <select name="Prefered Gender" className="p-2 rounded-md cursor-pointer bg-messagecolor1 shadow-xl">
+          <option value="both" className="option h-full">
+            Both
+          </option>
           <option value="male" className="option h-full">
             Male
           </option>
-          <option value="female" className="option h-full">
+          <option value="both">
             Female
-          </option>
-          <option value="none">
-            Both
           </option>
         </select>
       </div>

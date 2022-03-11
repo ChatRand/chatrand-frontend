@@ -4,6 +4,7 @@ import ChatPlace from './components/Chat/ChatPlace';
 import { SocketContext, socket } from './Context/socket';
 import { useDispatch } from 'react-redux';
 import { addMessage } from './store/messageSlice';
+import { changeTypingStatus } from './store/typingStatusSlice';
 
 import {useEffect} from 'react';
 import { changeStatus } from './store/statusSlice';
@@ -23,9 +24,17 @@ function App() {
         }))
       });
 
-      // socket.on('searching', (data) => {
-      //   console.log(data.message);
-      // })
+      socket.on('typing', (data) => {
+        dispatch(changeTypingStatus({
+          typing: 'typing',
+        }));
+        
+        setTimeout(() => {
+          dispatch(changeTypingStatus({
+            typing: 'none',
+          }));
+        }, 5000);
+      });
   
       socket.on('message', (data) => {
         const receivedMessage = data.message;
