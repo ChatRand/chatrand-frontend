@@ -5,6 +5,10 @@ const GenderSelect = () => {
       <div className="flex flex-col items-center justify-around">
         <div className="flex items-center justify-between w-48 h-10 pr-5 pl-5 pt-10 pb-10">
             <div>
+              <input type="radio" id="both" name="both" value="Both" />
+              <label for="both">Both</label>
+            </div>
+            <div>
               <input type="radio" id="male" name="gender" value="Male" />
               <label for="male">Male</label>
             </div>

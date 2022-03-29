@@ -46,12 +46,10 @@ const InputBox = () => {
     e.preventDefault();
     
     if(message === "") {
-      alert('Please write message');
       return;
     }
 
     if(status === 'none') {
-      alert('You should be matched first!');
       return;
     }
     // const owner = 'me';

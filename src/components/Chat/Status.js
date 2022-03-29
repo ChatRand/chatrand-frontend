@@ -21,7 +21,11 @@ const Status = () => {
 
   const lookForMatch = () => {
     dispatch(clearMessages({}));
-    socket.emit('searchForMatch');
+    socket.emit('searchForMatch', {
+      sex: 'None',
+      preferedSex: 'Both',
+    });
+
     dispatch(changeStatus({
       status: 'searching',
     }));
@@ -31,17 +35,17 @@ const Status = () => {
    <div className={'status p-2 flex items-center justify-around pl-2 pr-2 lg:pl-40 lg:pr-40 h-[9vh] ' +  status }>
       <div className="flex items-center">
         { status === 'matched' ? <h3 onClick={leaveChat} 
-        className={'rounded-md p-2 h-full flex items-center cursor-pointer shadow-xl ' + status}>
+        className={'rounded-md p-2 h-full flex items-center cursor-pointer ' + status}>
           Leave Chat
         </h3>: <h3 
         onClick={lookForMatch} 
-        className={'rounded-md p-2 h-full flex items-center cursor-pointer shadow-xl ' + status}>
+        className={'rounded-md p-2 h-full flex items-center cursor-pointer ' + status}>
           Get Matched
         </h3> } <p className="ml-3">{ status === 'none' ? 'Not Matched' : status }</p>
       </div>
 
       <div className="flex items-center">
-        <select name="Prefered Gender" className="p-2 rounded-md cursor-pointer bg-messagecolor1 shadow-xl">
+        <select name="Prefered Gender" className="p-2 rounded-md cursor-pointer bg-messagecolor1">
           <option value="both" className="option h-full">
             Both
           </option>
