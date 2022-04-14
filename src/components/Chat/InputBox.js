@@ -60,11 +60,16 @@ const InputBox = () => {
       message: newMessage,
     });
 
+    const currentTime = new Date().toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+
     dispatch(addMessage({
       id: Math.floor(Math.random() * 1000 + 1),
       message: message,
       owner: 'me',
-      time: '09:30AM',
+      time: currentTime,
     }));
 
     setMessage('');

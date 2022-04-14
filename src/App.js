@@ -43,7 +43,7 @@ function App() {
           id: data.id,
           message: receivedMessage,
           owner: 'partner',
-          time: '09:30AM'
+          time: data.time
         });
       });
   
