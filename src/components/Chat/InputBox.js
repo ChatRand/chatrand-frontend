@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SocketContext } from '../../Context/socket';
 import { addMessage } from '../../store/messageSlice';
 
-// let lastType = null;
 const InputBox = () => {
   const socket = useContext(SocketContext);
 
@@ -11,7 +10,7 @@ const InputBox = () => {
   const dispatch = useDispatch();
   const statusData = useSelector(status => status.status);
   const typingStatus = useSelector(typing => typing.typing)[0];
-  console.log(typingStatus);
+  const [lastType, setLastType] = useState(null);
   const status = statusData[0];
   const ESCAPE_KEYS = ["27", "Escape"];
 
@@ -78,21 +77,17 @@ const InputBox = () => {
   const handleInputChange = (e) => {
     setMessage(e.target.value);
 
-    // if(lastType == null) {
-    //   lastType = new Date();
-    //   socket.emit('typing');
-    // } else {
-    //   let now = new Date();
+    if(lastType == null) {
+      setLastType(new Date());
+      socket.emit('typing');
+    } else {
+      let now = new Date();
 
-    //   if((now - lastType) > 10000) {
-    //     console.log('yes');
-    //     socket.emit('typing');
-    //     lastType = now;
-    //   }
-      
-    // }
-
-    socket.emit('typing');
+      if((now - lastType) >= 10000) {
+        socket.emit('typing');
+        setLastType(new Date());
+      }
+    }
   }
 
   return (

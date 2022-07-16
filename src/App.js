@@ -24,6 +24,10 @@ function App() {
         }))
       });
 
+      socket.on('searching', (data) => {
+        console.log(data);
+      });
+
       socket.on('typing', (data) => {
         dispatch(changeTypingStatus({
           typing: 'typing',
